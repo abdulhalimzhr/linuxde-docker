@@ -1,0 +1,16 @@
+version: '3'
+services:
+  container:
+    build: .
+    ports:
+      - "5901:5901"
+    networks:
+      custom-network:
+        ipv4_address: 172.28.1.5
+    mac_address: "02:42:ac:11:00:05"
+networks:
+  custom-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
