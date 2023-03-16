@@ -40,11 +40,9 @@ RUN mkdir /root/.vnc && touch /root/.vnc/passwd && chmod 600 /root/.vnc/passwd
 RUN echo "password" | vncpasswd -f >> /root/.vnc/passwd && \
     chmod 600 /root/.vnc/passwd
 
-# Install Google Chrome
-RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-    && dpkg --install google-chrome-stable_current_amd64.deb \
-    || apt-get install -y --fix-broken \
-    && dpkg --install google-chrome-stable_current_amd64.deb
+# Install Firefox
+RUN apt-get install firefox -y
+
 
 # Start VNC server
 CMD ["vncserver", ":1", "-geometry", "1280x800", "-depth", "24"]
