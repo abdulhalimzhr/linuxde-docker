@@ -23,7 +23,4 @@ RUN chmod 755 /.vnc/xstartup
 
 RUN mkdir /root/.vnc
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt install ./google-chrome-stable_current_amd64.deb -y
-
 CMD ["vncserver"]
